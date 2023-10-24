@@ -56,10 +56,11 @@ pipeline {
             withSonarQubeEnv('SonarQube') { 
                 withCredentials([string(credentialsId: 'SonarQube-Token', variable: 'SONAR_TOKEN')]) {
                 sh """
-                mvn sonar:sonar \
-                -Dsonar.projectKey=CICD \
-                -Dsonar.host.url=http://34.216.173.175:9000 \
-                -Dsonar.login=0874788a7d5e03359e8e92777772956cd4025b4f
+               mvn sonar:sonar \
+               mvn sonar:sonar \
+               -Dsonar.projectKey=CICD \
+               -Dsonar.host.url=http://3.12.132.124:9000 \
+               -Dsonar.login=f591b28ddd14ca303fb17fbb9790050b359dd37d   
                 """
                 }
             }
@@ -123,7 +124,7 @@ pipeline {
   post {
     always {
         echo 'Slack Notifications.'
-        slackSend channel: '##cicd-alert34/update and provide your channel name
+        slackSend channel: '#cicd-alert34', //update and provide your channel name
         color: COLOR_MAP[currentBuild.currentResult],
         message: "*${currentBuild.currentResult}:* Job Name '${env.JOB_NAME}' build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Project Workspace: ${env.WORKSPACE} \n More info at: ${env.BUILD_URL}"
     }
