@@ -552,7 +552,20 @@ A) Update Maven `POM.xml` file
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
 ```bash
 
-## MAKE SURE TO BE IN YOUR EC2 INSTANCE ( cd /home/ec2-user/  )
+# GO TO YOUR ansible-config file (u will see your dynamc variable names Tags names and go back to ur 3 instances )
+
+steps:
+a)check your region in ansible-config file
+b)go into your 3 instances change the enviroment variable name 
+c)manage tags for all ur 3 instances ,add new tags
+d)On all 3 instances . key =Environment (as found in our config file )  value = dev ,stage and prod
+e) save
+
+
+
+
+
+## MAKE SURE TO BE IN YOUR EC2 INSTANCE before running below commands ( cd /home/ec2-user/  )
 
 #!/bin/bash
 # Tomcat Server Installation
