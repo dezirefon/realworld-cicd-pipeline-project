@@ -551,6 +551,9 @@ A) Update Maven `POM.xml` file
 - NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
 ```bash
+
+## MAKE SURE TO BE IN YOUR EC2 INSTANCE ( cd /home/ec2-user/  )
+
 #!/bin/bash
 # Tomcat Server Installation
 sudo su
